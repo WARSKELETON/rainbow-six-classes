@@ -1,20 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import jager from './jager.png';
 import './App.css';
 import * as Vibrant from 'node-vibrant';
+import styled from "styled-components";
+import { lighten } from 'polished';
 
 function App() {
-  // Using builder
-  Vibrant.from(jager).getPalette((err, palette) => console.log(palette))
+  const [ola, setola] = useState("")
+  Vibrant.from(jager).getPalette((err, palette) => setola(palette.Vibrant.hex))
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Text color={ola}>
+          Hello World!
+        </Text>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -29,3 +31,7 @@ function App() {
 }
 
 export default App;
+
+const Text = styled.p`
+  color: ${props => props.color && lighten(0.2, props.color)};
+`
