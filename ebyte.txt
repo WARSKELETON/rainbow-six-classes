@@ -1,0 +1,50 @@
+Sledge - L85A2/Holographic,compensator,vertical grip
+Thatcher - L85A2/Holographic,compensator,vertical grip
+Thatcher - AR33/Holographic,compensator,angled grip
+Ash - R4-C/Reflex,flash hider,vertical grip
+Thermite - 556XI/Holographic,flash hider,angled grip
+Twitch - F2/Holographic,muzzle brake,vertical grip
+Montagne - Pistol/muzzle brake
+Glaz - 0Ts-03/Reflex,muzzle brake
+Fuze - AK-12/Reflex,compensator,vertical grip
+Blitz - Pistol/muzzle brake
+IQ - 552 Commando/Holographic,compensator,vertical grip
+Buck - C8-SFW/Holographic,flash hider
+Blackbeard - MK17 CQB/Acog,flash hider,vertical grip
+Capitao - PARA-308/Acog,flash hider,vertical grip
+Hibana - TYPE-89/Holographic,compensator,vertical grip
+Jackal - C7E/Acog,compensator,vertical grip
+Ying - T-95 LSW/Holographic,compensator,angled grip
+Zofia - M762/Reflex,compensator,vertical grip
+Dokkaebi - MK 14 EBR/Reflex,muzzle brake,vertical grip
+Lion - V308/Acog,compensator,vertical grip
+Finka - SASG-12/Reflex,angled grip,laser
+Maverick - M4/Holographic,flash hider,angled grip
+Nomad - AK-74M/Acog,flash hider
+Gridlock - M249 SAW/Acog,flash hider,vertical grip
+Nokk - FMG-9/Reflex,flash hider
+Smoke - M590A1/Reflex,laser
+Mute - MP5K/Reflex,flash hider,laser
+Castle - UMP45/Holographic,compensator,vertical grip
+Pulse - UMP45/Holographic,compensator,vertical grip
+Doc - MP5/Acog,flash hider,vertical grip
+Rook - MP5/Acog,flash hider,vertical grip
+Kapkan - 9x19VSN/Reflex,compensator,vertical grip
+Tachanka - 9x19VSN/Reflex,compensator,vertical grip
+Jager - 416-C Carbine/Reflex,flash hider,vertical grip
+Bandit - MP7/Reflex,compensator
+Frost - 9mm C1/Red dot,extended barrel,angled grip,laser
+Valkyrie - MPX/Reflex,compensator,vertical grip
+Caveira - SPAS-15/No attachments
+Echo - MP5SD/Acog,vertical grip,laser
+Mira - VECTOR .45 ACP/Reflex,compensator,vertical grip
+Lesion - T-5 SMG/Holographic,flash hider
+Ela - FO-12/Reflex,extended barrel,vertical grip,laser
+Ela - SCORPION EVO 3 A1/Reflex,muzzle brake,vertical grip,laser
+Vigil - K1A/Holographic,compensator,vertical grip
+Maestro - ALDA 5.56/Holographic,compensator,vertical grip
+Alibi - Mx4 Storm/Holographic,compensator,vertical grip
+Clash - SPSMG9/Flash hider,laser
+Kaid - AUG A3/Holographic,compensator,vertical grip
+Mozzie - COMMANDO 9/Holographic,flash hider,vertical grip
+Warden - MPX/Reflex,compensator,vertical grip
