@@ -1,8 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
+import jager from './jager.png';
 import './App.css';
+import * as Vibrant from 'node-vibrant';
 
 function App() {
+  // Using builder
+  Vibrant.from(jager).getPalette((err, palette) => console.log(palette))
+
   return (
     <div className="App">
       <header className="App-header">
