@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import * as Vibrant from 'node-vibrant';
 import styled from "styled-components";
 import { lighten } from 'polished';
-import jager from "../jager.png";
 import weapon from "../416-C_Carbine.png";
 
 const OperatorCard = () => {
+    const jager = require("../images/operator/jager.svg");
+    const jager_pallete = require("../images/operator/jager.png");
     const [vibrantHex, setVibrantHex] = useState("")
-    Vibrant.from(jager).getPalette((err, palette) => setVibrantHex(palette.Vibrant.hex))
+    Vibrant.from(jager_pallete).getPalette((err, palette) => setVibrantHex(palette.Vibrant.hex))
 
     return (
         <OperatorCardWrapper color={vibrantHex}>
@@ -31,11 +32,11 @@ export default OperatorCard
 
 const OperatorCardWrapper = styled.div`
     background: linear-gradient(214.1deg, ${props => props.color && lighten(0.5, props.color)} 0%, ${props => props.color} 100%);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
     border-radius: 10px;
     display: grid;
     grid-template-columns: 80px auto 80px;
-    grid-template-rows: auto 200px auto auto 200px;
+    grid-template-rows: auto 100px auto auto 100px;
     grid-template-areas:
         ". icon ."
         ". name ."
