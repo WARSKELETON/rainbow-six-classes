@@ -1,0 +1,10 @@
+:root {
+    --mainWhite: #F0F0F0;
+    --mainBlack: #121212;
+}
+  
+body {
+    font-family: "Roboto";
+    background-color: var(--mainWhite);
+    color: var(--mainBlack);
+}

@@ -1,37 +1,41 @@
-import React, { useState } from 'react';
+import React from 'react';
 import logo from './logo.svg';
-import jager from './jager.png';
 import './App.css';
-import * as Vibrant from 'node-vibrant';
 import styled from "styled-components";
-import { lighten } from 'polished';
+import OperatorCard from "./components/OperatorCard";
 
 function App() {
-  const [ola, setola] = useState("")
-  Vibrant.from(jager).getPalette((err, palette) => setola(palette.Vibrant.hex))
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Text color={ola}>
-          Hello World!
-        </Text>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppWrapper>
+      <Header>
+        <h1>R6 Classes 📁</h1>
+      </Header>
+      <Content>
+        <OperatorCard />
+      </Content>
+    </AppWrapper>
   );
 }
 
 export default App;
 
+const AppWrapper = styled.div`
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        ". header ."
+        ". content .";
+`
+
+const Header = styled.div`
+  grid-area: header;
+`
+
+const Content = styled.div`
+  grid-area: content;
+`
+
 const Text = styled.p`
-  color: ${props => props.color && lighten(0.2, props.color)};
+  color: white;
 `
