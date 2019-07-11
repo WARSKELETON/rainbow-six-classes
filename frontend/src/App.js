@@ -1,19 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+import { AppProvider } from "./context";
 import './App.css';
 import styled from "styled-components";
 import OperatorCard from "./components/OperatorCard";
 
 function App() {
   return (
-    <AppWrapper>
-      <Header>
-        <h1>R6 Classes 📁</h1>
-      </Header>
-      <Content>
-        <OperatorCard />
-      </Content>
-    </AppWrapper>
+    <AppProvider>
+      <AppWrapper>
+        <Header>
+          <h1>R6 Classes <span role="img" aria-label="Folder">📁</span></h1>
+        </Header>
+        <Content>
+          <OperatorCard />
+        </Content>
+      </AppWrapper>
+    </AppProvider>
   );
 }
 
@@ -34,8 +36,4 @@ const Header = styled.div`
 
 const Content = styled.div`
   grid-area: content;
-`
-
-const Text = styled.p`
-  color: white;
 `
