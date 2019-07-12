@@ -3,27 +3,28 @@ import { AppContext } from '../context';
 import * as Vibrant from 'node-vibrant';
 import styled from "styled-components";
 import { lighten } from 'polished';
-import Attachment from './Attachment';
+import AttachmentList from './AttachmentList';
 
 const OperatorCard = () => {
     const value = useContext(AppContext);
     const [vibrantHex, setVibrantHex] = useState("");
+    const operator = value.state.operatorsData[3];
 
-    const operator = value.state.operatorsData[23].operator.toLowerCase();
-    const weapon_name = value.state.operatorsData[23].primary_weapon;
+    const operator_name = operator.operator.toLowerCase();
+    const weapon_name = operator.primary_weapon;
     const weapon_name_underscore = weapon_name.replace(/ /g, "_");
-    const icon = require(`../images/operator/${operator}.svg`);
-    const icon_pallete = require(`../images/operator/${operator}.png`);
+    const icon = require(`../images/operator/${operator_name}.svg`);
+    const icon_pallete = require(`../images/operator/${operator_name}.png`);
     const weapon_icon = require(`../images/weapon/R6S_wpn_${weapon_name_underscore}.png`);
     Vibrant.from(icon_pallete).getPalette((err, palette) => setVibrantHex(palette.Vibrant.hex));
 
     return (
         <OperatorCardWrapper color={vibrantHex}>
             <Icon>
-                <img src={icon} alt={operator} style={{ width: "50%" }}></img>
+                <img src={icon} alt={operator_name} style={{ width: "50%" }}></img>
             </Icon>
             <Name>
-                <h2>{operator}</h2>
+                <h2>{operator_name}</h2>
             </Name>
             <WeaponIcon>
                 <img src={weapon_icon} alt={weapon_name} style={{ zoom: "100%" }}></img>
@@ -31,7 +32,7 @@ const OperatorCard = () => {
             <WeaponName>
                 <p>{weapon_name}</p>
             </WeaponName>
-            <Attachment />
+            <AttachmentList operator={operator}></AttachmentList>
         </OperatorCardWrapper>
     )
 }
@@ -44,7 +45,7 @@ const OperatorCardWrapper = styled.div`
     border-radius: 10px;
     display: grid;
     grid-template-columns: 50px auto 50px;
-    grid-template-rows: auto 100px auto auto auto 100px;
+    grid-template-rows: auto 100px repeat(3, auto) 100px;
     grid-template-areas:
         ". icon ."
         ". name ."
