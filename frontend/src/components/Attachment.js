@@ -1,20 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 
 const Attachment = (props) => {
-    const attachment = props.attachment.toLowerCase();
-    const attachment_underscore = attachment.replace(/ /g, "_");
-    const icon = require(`../images/attachment/${attachment_underscore}.png`);
+    const [attachment, setAttachment] = useState("");
+    const [icon, setIcon] = useState(null);
+
+    
+    useEffect(() => {
+        let attachment_name = props.attachment.toLowerCase();
+        let attachment_underscore = attachment_name.replace(/ /g, "_");
+        setAttachment(attachment_name);
+        setIcon(require(`../images/attachment/${attachment_underscore}.png`));
+    }, [])
 
     return (
-        <AttachmentWrapper>
-            <Icon>
-                <img src={icon} alt="Holographic Sight" style={{ zoom: "5%" }}></img>
-            </Icon>
-            <Name>
-                <p>{attachment}</p>
-            </Name>
-        </AttachmentWrapper>
+        icon ? 
+            <AttachmentWrapper>
+                <Icon>
+                    <img src={icon} alt="Holographic Sight" style={{ zoom: "5%" }}></img>
+                </Icon>
+                <Name>
+                    <p>{attachment}</p>
+                </Name>
+            </AttachmentWrapper> :
+        <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
     )
 }
 

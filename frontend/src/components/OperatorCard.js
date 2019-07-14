@@ -8,7 +8,8 @@ import AttachmentList from './AttachmentList';
 const OperatorCard = () => {
     const value = useContext(AppContext);
     const [vibrantHex, setVibrantHex] = useState("");
-    const operator = value.state.operatorsData[3];
+    const [mutedHex, setMutedHex] = useState("");
+    const operator = value.state.operatorsData[0];
 
     const operator_name = operator.operator.toLowerCase();
     const weapon_name = operator.primary_weapon;
@@ -16,10 +17,13 @@ const OperatorCard = () => {
     const icon = require(`../images/operator/${operator_name}.svg`);
     const icon_pallete = require(`../images/operator/${operator_name}.png`);
     const weapon_icon = require(`../images/weapon/R6S_wpn_${weapon_name_underscore}.png`);
-    Vibrant.from(icon_pallete).getPalette((err, palette) => setVibrantHex(palette.Vibrant.hex));
+    Vibrant.from(icon_pallete).getPalette((err, palette) => {
+        setVibrantHex(palette.Vibrant.hex);
+        setMutedHex(palette.LightVibrant.hex);
+    });
 
     return (
-        <OperatorCardWrapper color={vibrantHex}>
+        <OperatorCardWrapper color={vibrantHex} muted={mutedHex}>
             <Icon>
                 <img src={icon} alt={operator_name} style={{ width: "50%" }}></img>
             </Icon>
@@ -41,6 +45,7 @@ export default OperatorCard
 
 const OperatorCardWrapper = styled.div`
     background: linear-gradient(214.1deg, ${props => props.color && lighten(0.5, props.color)} 0%, ${props => props.color} 100%);
+/*     background: linear-gradient(214.1deg, ${props => props.muted} 0%, ${props => props.color} 100%); */
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
     border-radius: 10px;
     display: grid;
