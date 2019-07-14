@@ -1,17 +1,27 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { AppContext } from "../context";
-import AnimatedImage from "./AnimatedImage"; 
+import AnimatedImage from "./AnimatedImage";
+import { Link } from "react-router-dom"; 
  
 const OperatorList = () => {
     const value = useContext(AppContext);
 
     return (
         <OperatorListWrapper>
-            {value.state.operatorsData.map(operator => {
+            {value.state.operatorsData.map((operator, index) => {
                 const operator_name = operator.operator.toLowerCase();
                 const icon = require(`../images/operator/${operator_name}.svg`);
-                return <AnimatedImage image={icon} name={operator_name}></AnimatedImage>
+                return (
+                    <Link style={{ textDecoration: 'none' }} to={{
+                        pathname: operator_name,
+                        state: {
+                            operatorIndex: index
+                        }
+                    }}>
+                        <AnimatedImage image={icon} name={operator_name}></AnimatedImage>
+                    </Link>
+                )
             })}
         </OperatorListWrapper>
     )

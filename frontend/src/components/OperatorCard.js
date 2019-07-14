@@ -5,11 +5,11 @@ import styled from "styled-components";
 import { lighten } from 'polished';
 import AttachmentList from './AttachmentList';
 
-const OperatorCard = () => {
+const OperatorCard = (props) => {
     const value = useContext(AppContext);
     const [vibrantHex, setVibrantHex] = useState("");
     const [mutedHex, setMutedHex] = useState("");
-    const operator = value.state.operatorsData[0];
+    const operator = value.state.operatorsData[props.location.state.operatorIndex];
 
     const operator_name = operator.operator.toLowerCase();
     const weapon_name = operator.primary_weapon;
@@ -19,7 +19,7 @@ const OperatorCard = () => {
     const weapon_icon = require(`../images/weapon/R6S_wpn_${weapon_name_underscore}.png`);
     Vibrant.from(icon_pallete).getPalette((err, palette) => {
         setVibrantHex(palette.Vibrant.hex);
-        setMutedHex(palette.LightVibrant.hex);
+        setMutedHex(palette.LightMuted.hex);
     });
 
     return (
