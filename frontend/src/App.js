@@ -5,8 +5,6 @@ import './App.css';
 import styled from "styled-components";
 import OperatorList from "./components/OperatorList";
 import OperatorCard from "./components/OperatorCard";
-import OperatorList from "./components/OperatorList";
-import { Switch, Route, Link } from "react-router-dom";
 
 function App() {
   return (

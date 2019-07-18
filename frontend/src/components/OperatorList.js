@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import { AppContext } from "../context";
 import AnimatedImage from "./AnimatedImage";
-import { Link } from "react-router-dom"; 
  
 const OperatorList = () => {
     const value = useContext(AppContext);
@@ -35,8 +34,10 @@ const OperatorListWrapper = styled.div`
     grid-gap: 10px;
     grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
     grid-template-rows: auto;
+    background: linear-gradient(214.1deg, #f58a07 0%, #df5104 100%);
+    border-radius: 10px;
 
     img {
-        filter: drop-shadow(0px 0px 3px var(--mainBlack));
+        filter: drop-shadow(0px 0px 10px var(--mainBlack));
     }
 `
