@@ -5,7 +5,8 @@ const AppContext = React.createContext();
 
 class AppProvider extends Component {
     state = {
-        operatorsData: OperatorsData
+        operatorsData: OperatorsData,
+        type: "attacker"
     };
 
     render() {

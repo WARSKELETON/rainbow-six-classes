@@ -1,7 +1,9 @@
 import React from 'react';
 import { AppProvider } from "./context";
+import { Switch, Route, Link } from "react-router-dom";
 import './App.css';
 import styled from "styled-components";
+import OperatorList from "./components/OperatorList";
 import OperatorCard from "./components/OperatorCard";
 import OperatorList from "./components/OperatorList";
 import { Switch, Route, Link } from "react-router-dom";
@@ -11,13 +13,13 @@ function App() {
     <AppProvider>
       <AppWrapper>
         <Header>
-          <Link style={{ textDecoration: 'none', color: 'black' }} to="/">
+          <Link to="/" style={{ textDecoration: 'none' }}>
             <h1>R6 Classes <span role="img" aria-label="Folder">📁</span></h1>
           </Link>
         </Header>
         <Content>
           <Switch>
-            <Route exact={true} path="/:handle" component={OperatorCard} />
+            <Route exact={true} path="/class/:handler" component={OperatorCard} />
             <Route exact={true} path="/" component={OperatorList} />
           </Switch>
         </Content>
@@ -39,6 +41,10 @@ const AppWrapper = styled.div`
 
 const Header = styled.div`
   grid-area: header;
+
+  a {
+    color: var(--mainBlack);
+  }
 `
 
 const Content = styled.div`

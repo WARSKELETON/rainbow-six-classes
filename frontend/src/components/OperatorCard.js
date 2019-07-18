@@ -9,7 +9,7 @@ const OperatorCard = (props) => {
     const value = useContext(AppContext);
     const [vibrantHex, setVibrantHex] = useState("");
     const [mutedHex, setMutedHex] = useState("");
-    const operator = value.state.operatorsData[props.location.state.operatorIndex];
+    const operator = value.state.operatorsData[props.location.state.index];
 
     const operator_name = operator.operator.toLowerCase();
     const weapon_name = operator.primary_weapon;
@@ -49,7 +49,7 @@ const OperatorCardWrapper = styled.div`
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
     border-radius: 10px;
     display: grid;
-    grid-template-columns: 50px auto 50px;
+    grid-template-columns: 50px 300px 50px;
     grid-template-rows: auto 100px repeat(3, auto) 100px;
     grid-template-areas:
         ". icon ."

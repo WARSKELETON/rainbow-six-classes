@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import { AppContext } from "../context";
 import AnimatedImage from "./AnimatedImage";
@@ -14,9 +15,9 @@ const OperatorList = () => {
                 const icon = require(`../images/operator/${operator_name}.svg`);
                 return (
                     <Link style={{ textDecoration: 'none' }} to={{
-                        pathname: operator_name,
+                        pathname: `/class/${operator_name}`,
                         state: {
-                            operatorIndex: index
+                            index: index
                         }
                     }}>
                         <AnimatedImage image={icon} name={operator_name}></AnimatedImage>
@@ -32,7 +33,7 @@ export default OperatorList
 const OperatorListWrapper = styled.div`
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
     grid-template-rows: auto;
 
     img {
