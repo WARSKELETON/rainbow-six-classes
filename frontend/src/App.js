@@ -1,19 +1,18 @@
 import React from 'react';
 import { AppProvider } from "./context";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import './App.css';
 import styled from "styled-components";
 import OperatorList from "./components/OperatorList";
 import OperatorCard from "./components/OperatorCard";
+import Topbar from "./components/Topbar";
 
 function App() {
   return (
     <AppProvider>
       <AppWrapper>
         <Header>
-          <Link to="/" style={{ textDecoration: 'none' }}>
-            <h1>R6 Classes <span role="img" aria-label="Folder">📁</span></h1>
-          </Link>
+          <Topbar />
         </Header>
         <Content>
           <Switch>

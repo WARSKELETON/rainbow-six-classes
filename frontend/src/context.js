@@ -9,11 +9,25 @@ class AppProvider extends Component {
         type: "attacker"
     };
 
+    getTypeColor = () => {
+        return this.state.type === "attacker" ? "#EF7B06" : "#0682D2";
+    }
+
+    toggleType = () => {
+        const newType = this.state.type === "attacker" ? "defender" : "attacker";
+
+        this.setState({
+            type: newType
+        })
+    }
+
     render() {
         return (
             <AppContext.Provider
                 value={{
-                    state: this.state
+                    state: this.state,
+                    getTypeColor: this.getTypeColor,
+                    toggleType: this.toggleType
                 }}
             >
                 {this.props.children}
