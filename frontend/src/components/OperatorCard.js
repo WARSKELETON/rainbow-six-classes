@@ -54,9 +54,9 @@ const OperatorCardWrapper = styled.div`
 /*   background: linear-gradient(214.1deg, ${props =>
     props.color && adjustHue(30, props.color)} 0%, ${props =>
     props.color} 100%); */
-/*    background: linear-gradient(214.1deg, ${props =>
-    props.color && complement(props.color)} 50%, ${props =>
-    props.color} 50%); */
+   background: linear-gradient(214.1deg, ${props =>
+       props.color && complement(props.color)} 50%, ${props =>
+    props.color} 50%);
 /*     background: linear-gradient(214.1deg, ${props =>
     props.muted} 0%, ${props => props.color} 100%); */
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
