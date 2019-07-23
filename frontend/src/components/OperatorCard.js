@@ -1,11 +1,11 @@
-import React, { useState, useContext } from 'react';
-import { AppContext } from '../context';
-import * as Vibrant from 'node-vibrant';
+import React, { useState, useContext } from "react";
+import { AppContext } from "../context";
+import * as Vibrant from "node-vibrant";
 import styled from "styled-components";
-import { lighten } from 'polished';
-import AttachmentList from './AttachmentList';
+import { lighten, complement, adjustHue } from "polished";
+import AttachmentList from "./AttachmentList";
 
-const OperatorCard = (props) => {
+const OperatorCard = props => {
     const value = useContext(AppContext);
     const [vibrantHex, setVibrantHex] = useState("");
     const [mutedHex, setMutedHex] = useState("");
@@ -25,27 +25,40 @@ const OperatorCard = (props) => {
     return (
         <OperatorCardWrapper color={vibrantHex} muted={mutedHex}>
             <Icon>
-                <img src={icon} alt={operator_name} style={{ width: "50%" }}></img>
+                <img src={icon} alt={operator_name} style={{ width: "50%" }} />
             </Icon>
             <Name>
                 <h2>{operator_name}</h2>
             </Name>
             <WeaponIcon>
-                <img src={weapon_icon} alt={weapon_name} style={{ zoom: "100%" }}></img>
+                <img
+                    src={weapon_icon}
+                    alt={weapon_name}
+                    style={{ zoom: "100%" }}
+                />
             </WeaponIcon>
             <WeaponName>
                 <p>{weapon_name}</p>
             </WeaponName>
-            <AttachmentList operator={operator} color={mutedHex}></AttachmentList>
+            <AttachmentList operator={operator} color={mutedHex} />
         </OperatorCardWrapper>
-    )
-}
+    );
+};
 
-export default OperatorCard
+export default OperatorCard;
 
 const OperatorCardWrapper = styled.div`
-    background: linear-gradient(214.1deg, ${props => props.color && lighten(0.5, props.color)} 0%, ${props => props.color} 100%);
-/*     background: linear-gradient(214.1deg, ${props => props.muted} 0%, ${props => props.color} 100%); */
+    background: linear-gradient(214.1deg, ${props =>
+        props.color && lighten(0.5, props.color)} 0%, ${props =>
+    props.color} 100%);
+/*   background: linear-gradient(214.1deg, ${props =>
+    props.color && adjustHue(30, props.color)} 0%, ${props =>
+    props.color} 100%); */
+/*    background: linear-gradient(214.1deg, ${props =>
+    props.color && complement(props.color)} 50%, ${props =>
+    props.color} 50%); */
+/*     background: linear-gradient(214.1deg, ${props =>
+    props.muted} 0%, ${props => props.color} 100%); */
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
     border-radius: 10px;
     display: grid;
@@ -58,7 +71,7 @@ const OperatorCardWrapper = styled.div`
         ". weapon-name ."
         "attachment attachment attachment"
         ". . .";
-`
+`;
 
 const Icon = styled.div`
     grid-area: icon;
@@ -69,7 +82,7 @@ const Icon = styled.div`
         margin-right: auto;
         margin-left: auto;
     }
-`
+`;
 
 const Name = styled.div`
     grid-area: name;
@@ -81,11 +94,11 @@ const Name = styled.div`
         font-style: italic;
         font-size: 32px;
     }
-`
+`;
 
 const WeaponIcon = styled(Icon)`
     grid-area: weapon-icon;
-`
+`;
 
 const WeaponName = styled.div`
     grid-area: weapon-name;
@@ -95,4 +108,4 @@ const WeaponName = styled.div`
         font-weight: 700;
         font-size: 20px;
     }
-`
+`;
