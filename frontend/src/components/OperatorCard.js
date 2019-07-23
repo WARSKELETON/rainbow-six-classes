@@ -36,7 +36,7 @@ const OperatorCard = (props) => {
             <WeaponName>
                 <p>{weapon_name}</p>
             </WeaponName>
-            <AttachmentList operator={operator}></AttachmentList>
+            <AttachmentList operator={operator} color={mutedHex}></AttachmentList>
         </OperatorCardWrapper>
     )
 }
@@ -50,7 +50,7 @@ const OperatorCardWrapper = styled.div`
     border-radius: 10px;
     display: grid;
     grid-template-columns: 50px 300px 50px;
-    grid-template-rows: auto 100px repeat(3, auto) 100px;
+    grid-template-rows: auto 100px repeat(3, auto) 50px;
     grid-template-areas:
         ". icon ."
         ". name ."
@@ -79,6 +79,7 @@ const Name = styled.div`
         text-align: center;
         font-weight: 900;
         font-style: italic;
+        font-size: 32px;
     }
 `
 
@@ -92,5 +93,6 @@ const WeaponName = styled.div`
     p {
         text-align: center;
         font-weight: 700;
+        font-size: 20px;
     }
 `

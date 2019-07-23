@@ -15,7 +15,7 @@ const Attachment = (props) => {
 
     return (
         icon ? 
-            <AttachmentWrapper>
+            <AttachmentWrapper color={props.color}>
                 <Icon>
                     <img src={icon} alt="Holographic Sight" style={{ zoom: "5%" }}></img>
                 </Icon>
@@ -30,11 +30,15 @@ const Attachment = (props) => {
 export default Attachment
 
 const AttachmentWrapper = styled.div`
+    margin-top: 10px;
     display: grid;
+    grid-gap: 10px;
     grid-template-columns: repeat(2, 30px) auto;
     grid-template-rows: auto;
     grid-template-areas:
         ". attachment-icon attachment-name";
+    border: 1px solid var(--mainBlack);
+    background-color: rgba(255, 255, 255, 0.2);
 `
 
 const Icon = styled.div`
@@ -42,7 +46,7 @@ const Icon = styled.div`
     filter: drop-shadow(0px 0px 3px var(--mainBlack));
 
     img {
-        margin-top: 250px;
+        margin-top: 50%;
     }
 `
 
@@ -52,5 +56,6 @@ const Name = styled.div`
     p {
         text-transform: capitalize;
         font-weight: 500;
+        font-size: 18px;
     }
 `

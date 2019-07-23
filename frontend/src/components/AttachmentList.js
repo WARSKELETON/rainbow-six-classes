@@ -8,7 +8,7 @@ const AttachmentList = (props) => {
     return (
         <AttachmentListWrapper>
             {operator.attachments.map(attachment => {
-                return <Attachment key={attachment} attachment={attachment}></Attachment>
+                return <Attachment key={attachment} attachment={attachment} color={props.color}></Attachment>
             })}
         </AttachmentListWrapper>
     )
