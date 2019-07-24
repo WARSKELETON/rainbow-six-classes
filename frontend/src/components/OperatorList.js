@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "../context";
@@ -6,30 +6,44 @@ import AnimatedImage from "./AnimatedImage";
 
 const OperatorList = () => {
     const value = useContext(AppContext);
-    const type = value.state.type;
-    /*  const operators = value.state.operatorsData.filter(operator => operator.type === type); */
+    let type = value.state.type;
+    /*     const [operators, setOperators] = useState(
+        value.state.operatorsData.filter(operator => operator.type === type)
+    );
+
+    useEffect(() => {
+        const operators = value.state.operatorsData.filter(
+            operator => operator.type === type
+        );
+        setOperators(operators);
+    }, [type]); */
+
+    const operators = value.state.operatorsData.filter(
+        operator => operator.type === type
+    );
 
     return (
         <OperatorListWrapper type={type}>
-            {value.state.operatorsData.map((operator, index) => {
-                if (operator.type === type) {
-                    const operator_name = operator.operator.toLowerCase();
-                    const icon = require(`../images/operator/${operator_name}.svg`);
-                    return (
-                        <Link
-                            style={{ textDecoration: "none" }}
-                            to={{
-                                pathname: `/class/${operator_name}`,
-                                state: {
-                                    index: index
-                                }
-                            }}
-                        >
-                            <AnimatedImage image={icon} name={operator_name} />
-                        </Link>
-                    );
-                }
-                return null;
+            {operators.map(operator => {
+                const operator_name = operator.operator.toLowerCase();
+                const icon = require(`../images/operator/${operator_name}.svg`);
+                return (
+                    <Link
+                        style={{ textDecoration: "none" }}
+                        to={{
+                            pathname: `/class/${operator_name}`,
+                            state: {
+                                id: operator.id
+                            }
+                        }}
+                    >
+                        <AnimatedImage
+                            key={operator.id}
+                            image={icon}
+                            name={operator_name}
+                        />
+                    </Link>
+                );
             })}
         </OperatorListWrapper>
     );

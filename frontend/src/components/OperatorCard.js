@@ -9,7 +9,7 @@ const OperatorCard = props => {
     const value = useContext(AppContext);
     const [vibrantHex, setVibrantHex] = useState("");
     const [mutedHex, setMutedHex] = useState("");
-    const operator = value.state.operatorsData[props.location.state.index];
+    const operator = value.getOperator(props.location.state.id);
 
     const operator_name = operator.operator.toLowerCase();
     const weapon_name = operator.primary_weapon;

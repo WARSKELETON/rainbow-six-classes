@@ -11,15 +11,20 @@ class AppProvider extends Component {
 
     getTypeColor = () => {
         return this.state.type === "attacker" ? "#EF7B06" : "#0682D2";
-    }
+    };
 
     toggleType = () => {
-        const newType = this.state.type === "attacker" ? "defender" : "attacker";
+        const newType =
+            this.state.type === "attacker" ? "defender" : "attacker";
 
         this.setState({
             type: newType
-        })
-    }
+        });
+    };
+
+    getOperator = id => {
+        return this.state.operatorsData.find(operator => operator.id === id);
+    };
 
     render() {
         return (
@@ -27,7 +32,8 @@ class AppProvider extends Component {
                 value={{
                     state: this.state,
                     getTypeColor: this.getTypeColor,
-                    toggleType: this.toggleType
+                    toggleType: this.toggleType,
+                    getOperator: this.getOperator
                 }}
             >
                 {this.props.children}

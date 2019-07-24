@@ -47,7 +47,6 @@ const Type = styled.div`
 
     button {
         display: block;
-        filter: drop-shadow(0px 0px 3px ${props => props.typeColor});
         cursor: pointer;
         text-transform: uppercase;
         border: 1px solid ${props => props.typeColor};
@@ -67,6 +66,7 @@ const Type = styled.div`
         margin-top: 20px;
 
         &:hover {
+            filter: drop-shadow(0px 0px 3px ${props => props.typeColor});
             background: linear-gradient(
                 214.1deg,
                 ${props => props.typeColor && lighten(0.3, props.typeColor)} 0%,
